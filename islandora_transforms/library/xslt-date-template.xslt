@@ -9,6 +9,7 @@
     <xsl:param name="pid">not provided</xsl:param>
     <xsl:param name="datastream">not provided</xsl:param>
 
+    <xsl:value-of select="java:ca.discoverygarden.gsearch_extensions.JodaAdapter.addDateParser('YYYY-mm-dd HH:MM:SS')"/>
     <xsl:value-of select="java:ca.discoverygarden.gsearch_extensions.JodaAdapter.transformForSolr($date, $pid, $datastream)"/>
   </xsl:template>
 </xsl:stylesheet>
