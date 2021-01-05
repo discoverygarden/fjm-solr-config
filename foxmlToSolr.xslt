@@ -212,6 +212,7 @@
 
   <!-- Index an object -->
   <xsl:template match="/foxml:digitalObject" mode="indexFedoraObject">
+    <xsl:value-of select="java:ca.discoverygarden.gsearch_extensions.JodaAdapter.addDateParser('y-M-d H:m:s')"/>
     <xsl:param name="PID"/>
     <xsl:param name="version" select="false()"/>
 
@@ -328,6 +329,8 @@
         </xsl:for-each>
       </xsl:if>
     </doc>
+    <!-- Drop our parser. -->
+    <xsl:value-of select="java:ca.discoverygarden.gsearch_extensions.JodaAdapter.resetParsers()"/>
   </xsl:template>
 
   <!-- Delete the solr doc of an object -->
