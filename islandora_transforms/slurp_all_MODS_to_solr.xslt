@@ -41,11 +41,13 @@
     <xsl:variable name="rawTextValue" select="normalize-space(text())"/>
 
     <xsl:variable name="textValue">
+      <xsl:value-of select="java:ca.discoverygarden.gsearch_extensions.JodaAdapter.addDateParser('y-M-d H:m:s')"/>
       <xsl:call-template name="get_ISO8601_date">
         <xsl:with-param name="date" select="$rawTextValue"/>
         <xsl:with-param name="pid" select="$pid"/>
         <xsl:with-param name="datastream" select="$datastream"/>
       </xsl:call-template>
+      <xsl:value-of select="java:ca.discoverygarden.gsearch_extensions.JodaAdapter.resetParsers()"/>
     </xsl:variable>
 
     <!-- Use attributes in field name. -->
